@@ -14,6 +14,7 @@ build: npm-install contracts
 	pushd ${radish34} && \
 	docker-compose build && \
 	npm run setup && \
+	npm run deploy && \
 	popd
 
 clean: stop
@@ -47,7 +48,6 @@ stop:
 reset:
 	pushd ${radish34} && \
 	docker-compose down && \
-	docker container prune -f && \
 	docker volume rm radish34_mongo-buyer radish34_mongo-supplier1 radish34_mongo-supplier2 radish34_mongo-merkle-tree-volume radish34_chaindata && \
 	popd
 
