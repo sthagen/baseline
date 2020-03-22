@@ -30,7 +30,7 @@ After you've done that, log in to the Github package registry by running
 
 ### Setup
 1. As part of the development environment, we assume a procurement use-case with three users: (1) buyer and (2) supplier organizations.
-2. Run `npm ci && npm run postinstall`. ** This takes about 6 minutes to clean install npm packages in root and all sub directories **
+2. Run `npm i && npm run postinstall`. ** This takes about 6 minutes to clean install npm packages in root and all sub directories **
 3. Run `docker-compose build` to create the latest versions of the docker containers. ** Only do this the first time or when service source code is changed **. ** This takes about 40 minutes for a fresh build **
 4. Run `npm run setup` to perform zk-SNARK trusted setups for the circuits that are contained in the `/zkp/circuits`. ** This takes about 5-10 minutes to complete ** 
     <details> 
@@ -261,7 +261,7 @@ After you've done that, log in to the Github package registry by running
 
 ## Troubleshooting
 
-1. If you get errors during the `npm ci` step, please ensure that you are running node version `11`. The `nvm` (node version manager) tool allows you to easily switch between versions:
+1. If you get errors during the `npm i` step, please ensure that you are running node version `11`. The `nvm` (node version manager) tool allows you to easily switch between versions:
 ```
 nvm install 11
 nvm use 11

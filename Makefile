@@ -32,7 +32,7 @@ deploy-contracts:
 
 npm-install:
 	pushd ${radish34} && \
-	npm ci && npm run postinstall && \
+	npm i && npm run postinstall && \
 	popd
 
 start:

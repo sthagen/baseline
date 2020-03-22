@@ -45,7 +45,7 @@ Here are the targets currently exposed by the `Makefile`:
 | `make clean` | Reclaim disk used by all modules (i.e. `node_modules/`) and the local docker environment. This effectively uninstalls your local __Baseline__ environment and will require building from scratch. |
 | `make contracts` | Compile the Solidity contracts. |
 | `make deploy-contracts` | Deploy the Solidity contracts. Requires the stack to be running. |
-| `make npm-install` | `npm ci` wrapper for all modules in the monorepo. |
+| `make npm-install` | `npm i` wrapper for all modules in the monorepo. |
 | `make start` | Start the full __Baseline__ stack. Requires `docker` service to be running with at least 12 GB RAM allocation. |
 | `make stop` | Stop the running __Baseline__ stack. |
 | `make reset` | Clean the docker environment by pruning the docker networks and volumes. |
