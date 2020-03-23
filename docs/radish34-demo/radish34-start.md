@@ -8,7 +8,7 @@ If you’ve read the [Radish34 Explained](radish34.md) section or played with th
 
 ### Prerequisites
 
-1. Install [Docker for Mac](https://www.docker.com/docker-mac), or [Docker for Windows](https://www.docker.com/docker-windows)
+1. Install [Docker for Mac](https://www.docker.com/docker-mac), or [Docker for Windows](https://www.com/docker-windows)
    * It's recommended that you allocate 12GB of RAM in Docker \(see 'Troubleshooting'\).
 2. Install and start [dotdocker](https://github.com/aj-may/dotdocker)
 
@@ -25,7 +25,7 @@ After you've done that, log in to the Github package registry by running
 1. As part of the development environment, we assume a procurement use-case with three users: \(1\) buyer and \(2\) supplier organizations.
 2. Run `npm i && npm run postinstall`. \*\* This takes about 6 minutes to clean install npm packages in root and all sub directories \*\*
 3. Run `docker-compose build` to create the latest versions of the docker containers. \*\* Only do this the first time or when service source code is changed \*\*. \*\* This takes about 40 minutes for a fresh build \*\*
-4. Run `npm run setup` to perform zk-SNARK trusted setups for the circuits that are contained in the `/zkp/circuits`. \*\* This takes about 5-10 minutes to complete \*\* Example logs:
+4. Run `npm run setup-circuits` to perform zk-SNARK trusted setups for the circuits that are contained in the `/zkp/circuits`. \*\* This takes about 5-10 minutes to complete \*\* Example logs:
 
 \[ Need to fix the code segments below...maybe....at least it scrolls. \]
 
@@ -174,7 +174,7 @@ radish-34_radish-zkp_1 is up-to-date
    ```
 
 5. Run integration tests: `npm run test`
-6. Within about 5 minutes, UI is loaded on `http://radish34-ui.docker` on your local browser
+6. Within about 5 minutes, UI is loaded on `http://radish34-ui` on your local browser
 
 ### Troubleshooting
 
@@ -197,7 +197,7 @@ nvm use 11
 
 #### Front-end Environment
 
-1. When the above setup is run successfully, the UI is ready at `http://radish34-ui.docker`
+1. When the above setup is run successfully, the UI is ready at `http://radish34-ui`
 2. Typically, this process takes about a minute to two. Successful loading of UI at the url can be inspected based on the logs of the `radish34-ui` container. Example Logs:
 
    ```text

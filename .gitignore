@@ -96,8 +96,7 @@ typings/
 artifacts/
 build
 dist
-*config*/config-*.json
-*config*/merkle-tree/
+config/
 
 # Ignore generated docs
 docs/generated
