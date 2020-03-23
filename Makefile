@@ -18,6 +18,7 @@ build: npm-install contracts
 	popd
 
 clean: stop
+	docker container prune -f
 	$(radish34)/../bin/clean_npm.sh
 
 contracts:
@@ -49,6 +50,8 @@ reset:
 	pushd ${radish34} && \
 	docker-compose down && \
 	docker volume rm radish34_mongo-buyer radish34_mongo-supplier1 radish34_mongo-supplier2 radish34_mongo-merkle-tree-volume radish34_chaindata && \
+	npm run deploy && \
+	docker-compose down && \
 	popd
 
 test:
