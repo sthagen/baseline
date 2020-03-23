@@ -6,7 +6,7 @@ radish34=./radish34
 # over time, as the radish34 use-case is abstracted/generalized into
 # the baseline protocol, the pushd/popd hacks will fade away...
 
-.PHONY: build clean contracts deploy-contracts npm-install start stop reset test zk-circuits
+.PHONY: build clean contracts deploy-contracts npm-install start stop system-check reset test zk-circuits
 
 default: build
 
@@ -35,7 +35,7 @@ npm-install:
 	npm i && npm run postinstall && \
 	popd
 
-start:
+start: system-check
 	pushd ${radish34} && \
 	docker-compose up -d && \
 	popd
@@ -44,6 +44,9 @@ stop:
 	pushd ${radish34} && \
 	docker-compose down && \
 	popd
+
+system-check:
+	@npm run --silent system-check
 
 reset:
 	pushd ${radish34} && \
@@ -68,6 +71,7 @@ restart:
 	docker-compose down && \
 	docker-compose up -d && \
 	popd
+
 test:
 	pushd ${radish34} && \
 	npm run test && \
