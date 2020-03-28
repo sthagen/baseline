@@ -89,7 +89,6 @@ services:
       - ./deploy/src:/app/src:delegated
       - ./deploy/package.json:/app/package.json:delegated
       - ./contracts/artifacts:/app/artifacts:delegated
-      - ./config/keystore:/keystore:delegated
       - ./config:/app/src/config
 
   api-buyer:
