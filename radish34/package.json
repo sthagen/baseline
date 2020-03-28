@@ -27,7 +27,7 @@
   "scripts": {
     "build": "./ops/build.sh",
     "build:contracts": "pushd contracts && npm run build && popd",
-    "deploy": "docker-compose run --rm deploy sh deploy.sh",
+    "deploy": "pushd deploy && ./deploy.sh && popd && docker-compose run --rm deploy",
     "docs:build": "./bin/build_docs.sh",
     "lint": "solhint \"contracts/**/*.sol\"",
     "postman-test-zkp-api": "npx newman run zkp/src/test/zkp-api-integration-test.postman_collection.json -e zkp/src/test/radish-local.postman_environment.json",
