@@ -1,6 +1,5 @@
 {
   "contractsDir": "contracts",
   "artifactsDir": "artifacts",
-  "solcVersion": "0.5.8",
-  "isOfflineMode": true
+  "useDockerisedSolc": true
 }
