@@ -1,3 +1,5 @@
+const { execSync } = require('child_process');
+const fs = require('fs');
 const ethers = require('ethers');
 const Wallet = require('./utils/wallet');
 const Contract = require('./utils/contract');
@@ -7,6 +9,22 @@ const { getWhisperIdentities } = require('./utils/identities');
 const { uploadVks } = require('./utils/vk');
 
 const addresses = {};
+const pycryptoCliPath = 'pycrypto/cli.py';
+
+const generateKeyPair = () => {
+  let keys = {};
+  if (fs.existsSync(pycryptoCliPath)) {
+    const stdout = execSync(`python3 ${pycryptoCliPath} keygen`);
+    const lines = stdout.toString().split(/\n/);
+    const keypair = lines[0].split(/ /);
+    if (keypair.length === 2) {
+      keys['privateKey'] = `0x${keypair[0]}`;
+      keys['publicKey'] = `0x${keypair[1]}`;
+    }
+  }
+
+  return keys;
+}
 
 const deployContracts = async role => {
   addresses.ERC1820Registry = await Contract.deployContract('ERC1820Registry', [], role);
@@ -58,23 +76,37 @@ const setInterfaceImplementer = async role => {
 
 // TODO Add a method to create commitment public key and private key for the user and receive these of the partners' from partners.
 // Remove these fields from config. Or just the organisationzkpPrivateKey
-const register = async role => {
+const register = async (admin, role) => {
   const roleAddress = await Wallet.getAddress(role);
   const config = await Settings.getServerSettings(role);
   let { organization } = config;
   const messengerKey = (await getWhisperIdentities())[role];
   organization = { ...organization, messengerKey };
 
+  organization.address = roleAddress;
+  if (!organization.zkpPublicKey) {
+    const { privateKey, publicKey } = generateKeyPair();
+    organization.zkpPublicKey = publicKey;
+    organization.zkpPrivateKey = privateKey;
+  }
+
   const { transactionHash } = await Organization.registerToOrgRegistry(
-    role,
+    admin,
     addresses.OrgRegistry,
-    roleAddress,
+    organization.address,
     organization.name,
     organization.role,
     organization.messengerKey,
     organization.zkpPublicKey,
   );
   console.log(`✅  Registered ${role} in the OrgRegistry with tx hash:`, transactionHash);
+
+  if (transactionHash) {
+    Settings.setServerSettings(role, {
+      addresses,
+      organization,
+    });
+  }
 };
 
 const registerInterfaces = async role => {
@@ -116,14 +148,12 @@ const saveSettings = async role => {
 };
 
 const main = async () => {
-
   await deployContracts('deployer');
-  await assignManager('deployer');
   await setInterfaceImplementer('deployer');
-  await register('buyer');
-  await register('supplier1');
-  await register('supplier2');
-  await registerInterfaces('buyer');
+  await register('deployer', 'buyer');
+  await register('deployer', 'supplier1');
+  await register('deployer', 'supplier2');
+  await registerInterfaces('deployer');
 
   await checkOrgCount();
   await checkOrgInfo('buyer');
