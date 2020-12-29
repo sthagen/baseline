@@ -26,6 +26,8 @@ The project governance board \(PGB\) is organized by OASIS and is accountable fo
 | [**Gina Rubino**](https://www.linkedin.com/in/ginarubino/)\*\*\*\* | Nethermind |
 | [**Kyle Thomas**](https://www.linkedin.com/in/kylebthomas/)\*\*\*\* | Provide |
 | [**Daniel Kochis**](https://www.linkedin.com/in/daniel-kochis-9b42627/)\*\*\*\* | Chainlink |
+| [**Tracy Kuhrt**](https://www.linkedin.com/in/tracykuhrt/)\*\*\*\* | Accenture |
+| [**Melanie Marsollier**](https://www.linkedin.com/in/melaniemarsollier/)\*\*\*\* | Splunk |
 
 ### Technical Steering Committee 2020/21 <a id="your-technical-steering-committee"></a>
 
@@ -108,6 +110,7 @@ Details on how to become a [Maintainer here](members.md).
 | \*\*\*\*[**Kyle Thomas**](https://github.com/kthomas)\*\*\*\* | Provide |
 | \*\*\*\*[**Tomasz Kajetan Stańczak**](https://www.linkedin.com/in/tomaszkajetanstanczak/)\*\*\*\* | Nethermind |
 | [**George Spasov**](https://www.linkedin.com/in/george-spasov/)\*\*\*\* | LimeChain |
+| [**Anais Ofranc**](https://github.com/Consianimis)\*\*\*\* | Consianimis |
 
 ## Founding Group on March 4, 2020 <a id="founding-group-on-march-4-2020"></a>
 
