@@ -1,6 +1,6 @@
 # Google Sheets/Microsoft Dynamics
 
-**⚠️ The "Baseline Mycrosoft Dynamics and Google Sheets" initiative is being integrated with** [**this new reference implementation**](../) **as a result of the `v0.1` release.**
+**⚠️ The "Baseline Microsoft Dynamics and Google Sheets" initiative is being integrated with** [**this new reference implementation**](../) **as a result of the `v0.1` release.**
 
 ## Baselining Business Process Automation across SAP and Microsoft Dynamics
 
@@ -10,7 +10,7 @@ May 21, 2020
 
 ## Introduction
 
-The "Baseline Mycrosoft Dynamics and Google Sheets" shows establishing a common frame of reference on the public Ethereum Mainnet between Mycrosoft Dynamics and Google Sheets. The demo extends the [Radish34 POC](https://docs.baseline-protocol.org/radish34/radish34-explained), showing a procurement process in a supply chain POC.
+The "Baseline Mycrosoft Dynamics and Google Sheets" shows establishing a common frame of reference on the public Ethereum Mainnet between Mycrosoft Dynamics and Google Sheets. The demo extends the [Radish34 POC](https://docs.baseline-protocol.org/bri/radish34/radish34-explained), showing a procurement process in a supply chain POC.
 
 The open-source-available code of the development work continues the positive trend of Baseline demos showcasing the connection between two system with quite different level of sophistication.
 
